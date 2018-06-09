@@ -5,6 +5,18 @@ plugins {
 group 'com.galvanize'
 version '1.0-SNAPSHOT'
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.2'
+    }
+}
+
+apply plugin: "java"
+apply plugin: "org.junit.platform.gradle.plugin"
+
 sourceCompatibility = 1.8
 
 repositories {
@@ -13,6 +25,10 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    testCompile 'org.apiguardian:apiguardian-api:1.0.0',
+            'org.junit.jupiter:junit-jupiter-params:5.0.2',
+            'org.junit.jupiter:junit-jupiter-engine:5.0.2'
 }
 
 task wrapper(type: Wrapper) {
